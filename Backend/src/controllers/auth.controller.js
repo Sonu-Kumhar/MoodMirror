@@ -18,9 +18,9 @@ async function registerUser(req, res){
         })
     }
 
-    const hash = bcrypt.hash(password, 10);
+    const hash = await bcrypt.hash(password, 10);
 
-    const user = userModel.create({
+    const user = await userModel.create({
         username, 
         email,
         password: hash
@@ -59,7 +59,7 @@ async function loginUser(req, res){
             {email},
             {username}
         ]
-    })
+    }).select("+password")
 
     if(!user){
         return res.status(400).json({
