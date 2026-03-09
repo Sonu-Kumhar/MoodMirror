@@ -1,4 +1,4 @@
-import {login, registe, getMe, logout, register} from "../services/auth.api"
+import {login, register, getMe, logout} from "../services/auth.api"
 import { useContext } from "react"
 import { AuthContext } from "../auth.context"
 
