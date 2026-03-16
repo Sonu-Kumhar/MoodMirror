@@ -9,7 +9,7 @@ export const useSong = () => {
 
     async function handleGetSong({mood}) {
         setLoading(true)
-        const data = getSong({mood})
+        const data = await getSong({mood})
 
         setSong(data.song)
         setLoading(false)
