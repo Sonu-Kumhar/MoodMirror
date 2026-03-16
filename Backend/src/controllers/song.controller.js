@@ -16,12 +16,12 @@ async function uploadSong(req, res) {
         storageService.uploadFile({
             buffer: songBuffer,
             filename: tags.title + ".mp3",
-            folder: "/cohort-2/moodify/songs"
+            folder: "/moodmirror/songs"
         }),
         storageService.uploadFile({
             buffer: tags.image.imageBuffer,
             filename: tags.title + ".jpeg",
-            folder: "/cohort-2/moodify/posters"
+            folder: "/moodmirror/posters"
         })
     ])
 
