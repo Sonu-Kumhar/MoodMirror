@@ -5,6 +5,7 @@ import {
 
 
 export const init = async ({ landmarkerRef, videoRef, streamRef }) => {
+    if (landmarkerRef.current || streamRef.current) return; // 🛑 prevent re-init
     const vision = await FilesetResolver.forVisionTasks(
         "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
     );
