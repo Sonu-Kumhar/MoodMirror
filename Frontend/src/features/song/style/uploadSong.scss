@@ -1,0 +1,77 @@
+$primary: #037c4f;
+$primary-light: #059a65;
+$primary-dark: #025c3b;
+$bg-light: #f4fdf9;
+
+.upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: $bg-light;
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    color: $primary-dark;
+    margin-bottom: 20px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 320px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    input[type="file"] {
+      padding: 10px;
+      border: 2px dashed $primary-light;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #fff;
+
+      &:hover {
+        border-color: $primary;
+      }
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: 0.2s;
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 2px rgba(3, 124, 79, 0.2);
+      }
+    }
+
+    button {
+      padding: 12px;
+      background: $primary;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background: $primary-dark;
+      }
+
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
