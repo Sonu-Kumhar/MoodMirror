@@ -1,12 +1,14 @@
 import "../style/uploadSong.scss";
 import { useState } from "react";
+import { useUploadSong } from "../hooks/useUploadSong";
 
 const UploadSongPage = () => {
   const [song, setSong] = useState(null);
   const [mood, setMood] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const { uploadSong, loading, error, success } = useUploadSong();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!song || !mood) {
@@ -14,13 +16,10 @@ const UploadSongPage = () => {
       return;
     }
 
-    // UI layer only (no API call here)
-    console.log({
-      song,
-      mood,
+    await uploadSong({
+      songFile: song,
+      mood
     });
-
-    alert("Ready to upload 🚀");
   };
 
   return (
@@ -48,6 +47,10 @@ const UploadSongPage = () => {
         <button type="submit" disabled={loading}>
           {loading ? "Uploading..." : "Upload"}
         </button>
+
+        {/* Feedback */}
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        {success && <p style={{ color: "green" }}>Upload successful ✅</p>}
 
       </form>
     </div>
