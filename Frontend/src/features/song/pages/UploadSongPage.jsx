@@ -39,7 +39,7 @@ const UploadSongPage = () => {
         {/* Mood Input */}
         <input
           type="text"
-          placeholder="Enter mood (happy, sad...)"
+          placeholder="Enter mood (happy, sad, surprised...)"
           value={mood}
           onChange={(e) => setMood(e.target.value)}
         />
